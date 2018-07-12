@@ -25,11 +25,6 @@ func SetFlagsFromConfig(path string, section string) error {
 	flag.VisitAll(func(fl *flag.Flag) {
 
 		name := fl.Name
-		log.Println(name)
-
-		if name == "section" {
-			return
-		}
 
 		if sect.HasKey(name) {
 
