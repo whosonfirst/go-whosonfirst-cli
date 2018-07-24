@@ -14,3 +14,15 @@ func (m *MultiString) Set(value string) error {
 	*m = append(*m, value)
 	return nil
 }
+
+func (m *MultiString) Contains(value string) bool {
+
+	for _, test := range *m {
+
+		if test == value {
+			return true
+		}
+	}
+
+	return false
+}
