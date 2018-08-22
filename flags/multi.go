@@ -59,8 +59,10 @@ func (m *MultiDSNString) Set(value string) error {
 
 	for _, str_dsn := range strings.Split(value, ";;") {
 
-		dict := make(map[string]string)
+		str_dsn = strings.Trim(str_dsn, " ")
 		pairs := strings.Split(str_dsn, " ")
+
+		dict := make(map[string]string)
 
 		for _, str_pair := range pairs {
 
