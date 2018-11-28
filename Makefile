@@ -7,7 +7,6 @@ prep:
 self:   prep rmdeps
 	if test -d src; then rm -rf src; fi
 	mkdir -p src/github.com/whosonfirst/go-whosonfirst-cli
-	cp -r dsn src/github.com/whosonfirst/go-whosonfirst-cli/
 	cp -r flags src/github.com/whosonfirst/go-whosonfirst-cli/
 	cp -r vendor/* src/
 
@@ -28,10 +27,8 @@ vendor-deps: rmdeps deps
 
 fmt:
 	go fmt cmd/*.go
-	go fmt dsn/*.go
 	go fmt flags/*.go
 
 bin: 	self
 	rm -rf bin/*
 	@GOPATH=$(GOPATH) go build -o bin/wof-cli cmd/wof-cli.go
-	@GOPATH=$(GOPATH) go build -o bin/wof-cli-dsn cmd/wof-cli-dsn.go
